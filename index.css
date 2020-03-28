@@ -1,0 +1,122 @@
+body {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.fullvideo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+.mainpage {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.mainpage .topframe {
+    background-color: slateblue;
+    display: flex;
+    position: absolute;
+    z-index: 11;
+    top: 0px;
+    left: 0px;
+    width: 23vw;
+    height: 100vh;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 6px 0px 5px 0px rgba(0,0,0,0.54);
+}
+
+.mainpage .bottomframe {
+    background-color: slateblue;
+    display: flex;
+    position: absolute;
+    z-index: 11;
+    top: 0px;
+    right: 0px;
+    width: 23vw;
+    height: 100vh;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: -6px 0px 5px 0px rgba(0,0,0,0.54);
+}
+
+.mainpage .goplay {
+    position: absolute;
+    z-index: 12;
+    top: 50vh;
+    left: 50vw;
+    margin-left: -100px;
+    margin-top: -40px;
+    display: none;
+}
+.mainpage .goplay button{
+    width: 200px;
+    height: 80px;
+}
+
+@media screen and (max-width: 1590px) {
+    .mainpage .topframe, .mainpage .bottomframe {
+        width: 35vw;
+    } 
+    .fullvideo {
+        width: 55vw;
+        left: 22.5vw;
+    }
+}
+@media screen and (max-width: 1150px) {
+    body {
+        overflow: hidden;
+    }
+    .mainpage {
+        background-color: slateblue;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 50vh;
+        overflow-y: scroll;
+        padding-top: 15px;
+    }
+    .fullvideo {
+        position: absolute;
+        top: 50vh;
+        left: 0px;
+        z-index: 12;
+        display: flex;
+        width: 100vw;
+        height: 50vh;
+        box-shadow: 0px -5px 13px 0px rgba(0,0,0,0.75);
+    }
+
+    .mainpage .topframe {
+        background-color: slateblue;
+        display: contents;
+        width: 100vw;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        box-shadow: none;
+    }
+    
+    .mainpage .bottomframe {
+        background-color: slateblue;
+        display: contents;
+        width: 100vw;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        box-shadow: none;
+    }
+}
