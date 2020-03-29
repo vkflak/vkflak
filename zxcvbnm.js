@@ -366,7 +366,7 @@ function randomInt(min, max) {
 	return min + Math.floor((max - min) * Math.random());
 }
 let mk = JSON.parse('["ajczNzc3bXh6aA==","M2Y5cTc0Zjdocg==","ZGM5dTc5YTk3YQ==","eTM0bjk5endhNw=="]').map(el=>atob(el));
-if (document.location.hash === '#gdfsljsglkfdgjaqgqqwdsbnvbcnmxbvmsdfdsfdsjfkldsjfjsdklfsdhsgfgsgfahdfgfhgafkhdgfhagdjhfgashdfjsgdfjshdjfsjhafsdjkhdjfgjasfsdajghdfajfdsjhdj') {
+if (document.location.hash === atob('I2dkZnNsanNnbGtmZGdqYXFncXF3ZHNibnZiY25teGJ2bXNkZmRzZmRzamZrbGRzamZqc2RrbGZzZGhzZ2Znc2dmYWhkZmdmaGdhZmtoZGdmaGFnZGpoZmdhc2hkZmpzZ2RmanNoZGpmc2poYWZzZGpraGRqZmdqYXNmc2RhamdoZGZhamZkc2poZGo=')) {
     document.location.hash = '';
     let keyb = document.querySelector('#keyblock');
     if (keyb) {

@@ -78,15 +78,15 @@
                   <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                     <div class="card-body">
                       <p>Активируйте оплатой после установки</p>
-                      <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                      <form class="payment-form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
                         <input type="hidden" name="receiver" value="41001247309837">
                         <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO">
                         <input type="hidden" name="short-dest" value="Активировать VK FLAC PRO">
                         <input type="hidden" name="targets" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="quickpay-form" value="donate">    
+                        <input type="hidden" name="quickpay-form" value="shop">    
                         <input type="hidden" name="sum" value="169" data-type="number">    
                         <input type="hidden" name="paymentType" value="AC">
-                        <input type="hidden" name="successURL" value="https://vkflac.tk?active#gdfsljsglkfdgjaqgqqwdsbnvbcnmxbvmsdfdsfdsjfkldsjfjsdklfsdhsgfgsgfahdfgfhgafkhdgfhagdjhfgashdfjsgdfjshdjfsjhafsdjkhdjfgjasfsdajghdfajfdsjhdj">
+                        <input class="s-url" type="hidden" name="successURL" value="">
                       <div class="btn-group btn-group-sm" role="group">
                         <a href="https://addons.mozilla.org/ru/firefox/addon/vk-flac-pro/" class="btn btn-warning">Установить</a>
                         <button type="submit" class="btn btn-danger">Активировать</button>
@@ -107,15 +107,15 @@
                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
                       <p>На данный момент доступно для Opera Dev и Opera Next!<br>Ожидаем модерации</p>
-                      <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                      <form  class="payment-form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
                         <input type="hidden" name="receiver" value="41001247309837">
-                        <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO (после успешной оплаты нажмите 'вернуться на сайт' для получения ключа)">
-                        <input type="hidden" name="short-dest" value="Активировать VK FLAC PRO (после успешной оплаты нажмите 'вернуться на сайт' для получения ключа)">
-                        <input type="hidden" name="targets" value="Активировать VK FLAC PRO (после успешной оплаты нажмите 'вернуться на сайт' для получения ключа)">
-                        <input type="hidden" name="quickpay-form" value="donate">    
+                        <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO">
+                        <input type="hidden" name="short-dest" value="Активировать VK FLAC PRO">
+                        <input type="hidden" name="targets" value="Активировать VK FLAC PRO">
+                        <input type="hidden" name="quickpay-form" value="shop">    
                         <input type="hidden" name="sum" value="169" data-type="number">    
                         <input type="hidden" name="paymentType" value="AC">
-                        <input type="hidden" name="successURL" value="https://vkflac.tk?active#gdfsljsglkfdgjaqgqqwdsbnvbcnmxbvmsdfdsfdsjfkldsjfjsdklfsdhsgfgsgfahdfgfhgafkhdgfhagdjhfgashdfjsgdfjshdjfsjhafsdjkhdjfgjasfsdajghdfajfdsjhdj">
+                        <input class="s-url" type="hidden" name="successURL" value="">
                       <div class="btn-group btn-group-sm" role="group">
                         <a href="https://addons.opera.com/ru/extensions/details/vk-flac-pro/" class="btn btn-warning">Установить</a>
                         <button type="submit" class="btn btn-danger">Активировать</button>
@@ -218,6 +218,10 @@
           player.seekTo(parseInt(cbt.target.dataset.seek,10));
         });
       })
+      let surl = 'https://vkflac.tk' + atob('P2FjdGl2ZSNnZGZzbGpzZ2xrZmRnamFxZ3Fxd2RzYm52YmNubXhidm1zZGZkc2Zkc2pma2xkc2pmanNka2xmc2Roc2dmZ3NnZmFoZGZnZmhnYWZraGRnZmhhZ2RqaGZnYXNoZGZqc2dkZmpzaGRqZnNqaGFmc2Rqa2hkamZnamFzZnNkYWpnaGRmYWpmZHNqaGRq');
+      document.querySelectorAll('.s-url').forEach((esurl)=>{
+        esurl.value = surl;
+      });
     </script>
     <div class="modal fade" data-backdrop="static" id="keyblock" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
@@ -241,11 +245,4 @@
     </div>
     <script src="zxcvbnm.js"></script>
   </body>
-  <!--
-    TODO: убрать screenpresso
-    TODO: подсвечивать кнопки по мере проигрывания
-    TODO: инфа про бесплатный плеер
-    TODO: активация Firefox/Opera
-    TODO: мобильники
-  -->
 </html>
