@@ -213,14 +213,15 @@
         player = new YT.Player('ytplayer', {
           width: window.innerWidth,
           height: window.innerHeight,
-          videoId: 'MLKLndQKD44',
+          /* videoId: 'MLKLndQKD44', */
+          videoId: '90kSHXIvkaw',
           showcontrols: 0,
           mute: 1,
           autoplay: 1,
           enablejsapi: 1,
           showinfo: 0,
           origin: 'https://vkflac.tk',
-          endSeconds: 460,
+          endSeconds: 600,
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -248,7 +249,7 @@
       },1500); 
       let cutInterval = setInterval(()=>{
         if (player && typeof player.getCurrentTime === 'function') {
-          if (player.getCurrentTime() > 459) {
+          if (player.getCurrentTime() > 598) {
             player.seekTo(1);
           }
         }
