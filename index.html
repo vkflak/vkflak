@@ -58,6 +58,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css?78" >
     <title>Проигрыватель FLAC для VK</title>
+    <script>
+      var isOpera = !!(navigator.userAgent.match(/Chrome\/[0-9]+/g) && navigator.userAgent.match(/OPR\/[0-9]+/g));
+      var isFirefox = !!(navigator.userAgent.match(/Gecko\/[0-9]+/g) && navigator.userAgent.match(/Firefox\/[0-9]+/g) && !isOpera);
+      var isChromeSupport = !!(navigator.userAgent.match(/Chrome\/[0-9]+/g) && !isFirefox && !isOpera);
+      var isOther = !isOpera && !isFirefox && !isChromeSupport;
+    </script>
   </head>
   <body>
     <div id="ytplayer" class="fullvideo"></div>
@@ -73,110 +79,99 @@
                 <p><div class="alert alert-success" role="alert">
                   За <span style="text-decoration: line-through;opacity: 0.4;">299</span> <strong>169 &#8381;</strong> до конца мая!
                 </div></p>
-                <a class="btn btn-primary btn-lg" onclick="ym(61636378,'reachGoal','INSTALL_EXT'); return true;" style="display: flex; align-items: center; width: 100%;" href="https://chrome.google.com/webstore/detail/vk-flac-pro/dkdjfffeiopgmnhkjanhcljkdcngmhan" role="button" target="_blank">
-                  <img class="float-left" style="height: 40px;" src="chrome.png">&nbsp;Купить в Chrome Web Store
+                <a id="chrome-support" class="btn btn-primary btn-lg" onclick="ym(61636378,'reachGoal','INSTALL_EXT'); return true;" style="display: flex; align-items: center; width: 100%;" href="https://chrome.google.com/webstore/detail/vk-flac-pro/dkdjfffeiopgmnhkjanhcljkdcngmhan" role="button" target="_blank">
+                  <img class="float-left" style="height: 40px;" src="chrome.png">&nbsp;&nbsp;/&nbsp;&nbsp;<img class="img-fluid float-left" style="height: 40px;" src="yandex-browser.png">&nbsp;&nbsp;Chrome Web Store
                 </a>
+                <script>
+                  if (!isChromeSupport) {
+                    document.getElementById('chrome-support').style.opacity = '0.3';
+                  }
+                </script>
                 <hr class="my-4">
-                <h4 class="display-8">Для FF, Opera и Yandex</h4>
-              <!-- ff / opera -->
-              <div class="accordion" id="accordionExample">
-                <div class="card" style="display: none;">
-                  <div class="card-header" id="headingZero">
-                    <h2 class="mb-0">
-                      <button class="btn btn-primary" style="width: 100%; display: flex; align-items: center; font-size: 18px" type="button" data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
-                        <img class="float-left" style="height: 40px;" src="chrome.png">&nbsp;&nbsp;Chrome Web Store
-                      </button>
-                    </h2>
-                  </div>
-                  <div id="collapseZero" class="collapse" aria-labelledby="headingZero" data-parent="#accordionExample">
-                    <div class="card-body">
-                      <h6>Как активировать?</h6>
-                      <form class="payment-form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
-                        <input type="hidden" name="receiver" value="41001247309837">
-                        <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="short-dest" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="targets" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="quickpay-form" value="shop">    
-                        <input type="hidden" name="sum" value="169" data-type="number">    
-                        <input type="hidden" name="paymentType" value="AC">
-                        <input class="s-url" type="hidden" name="successURL" value="">
-                      <div class="btn-group btn-group-sm" role="group">
-                        <a href="https://chrome.google.com/webstore/detail/vk-flac-pro-%CE%B2/jmomokkjcbchdibnbpchkoefnhhilfpa" class="btn btn-warning"  target="_blank">Установить</a>
-                        <button type="submit" class="btn btn-danger btn-pay">Оплатить</button>
-                        <a href="https://chrome.google.com/webstore/detail/%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-flac-%D0%B4%D0%BB%D1%8F-vk/hgoefiiboehgnhnhdhlfckklmamnlfkc" class="btn btn-light">Старая версия</a>
+                <div id="ff-opera-support">
+                <h4 class="display-8">Firefox и Opera</h4>
+                  <div class="accordion" id="accordionExample">
+                    <div id="firefox-support" class="card">
+                      <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link btn-info" style="width: 100%;" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <img class="img-fluid float-left" style="height: 40px;" src="firefox.png">
+                          </button>
+                          <script>
+                            if (!isFirefox){
+                              document.getElementById('firefox-support').style.opacity = '0.3';
+                            }
+                          </script>
+                        </h2>
                       </div>
-                    </form>
-                    <hr class="my-4">
-                    <h6 style="color: brown;">После успешной оплаты на Yandex<br>обязательно нажмите &laquo;Вернуться на сайт&raquo;</h6>
-                    <img style="width: 275px; height: auto;" src="yandex-howto.png?">
+                      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                          <h6>Как активировать?</h6>
+                          <form class="payment-form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                            <input type="hidden" name="receiver" value="41001247309837">
+                            <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO">
+                            <input type="hidden" name="short-dest" value="Активировать VK FLAC PRO">
+                            <input type="hidden" name="targets" value="Активировать VK FLAC PRO">
+                            <input type="hidden" name="quickpay-form" value="shop">    
+                            <input type="hidden" name="sum" value="169" data-type="number">    
+                            <input type="hidden" name="paymentType" value="AC">
+                            <input class="s-url" type="hidden" name="successURL" value="">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;" href="https://addons.mozilla.org/ru/firefox/addon/vk-flac-pro/" class="btn btn-warning"  target="_blank">Установить</a>
+                            <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return true;" type="submit" class="btn btn-danger btn-pay">Оплатить</button>
+                            <a href="https://addons.mozilla.org/ru/firefox/addon/%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-flac-%D0%B4%D0%BB%D1%8F-vk/" class="btn btn-light">Старая версия</a>
+                          </div>
+                        </form>
+                        <hr class="my-4">
+                        <h6 style="color: brown;">После успешной оплаты на Yandex<br>обязательно нажмите &laquo;Вернуться на сайт&raquo;</h6>
+                        <img style="width: 275px; height: auto;" src="yandex-howto.png?">
+                        </div>
+                      </div>
+                    </div>
+                    <div id="opera-support" class="card">
+                      <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                          <button class="btn btn-warning collapsed" style="width: 100%; display: flex; align-items: center; font-size: 18px" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <img class="img-fluid float-left" style="height: 40px;" src="opera.png">
+                          </button>
+                          <script>
+                            if (!isOpera){
+                              document.getElementById('opera-support').style.opacity = '0.3';
+                            }
+                          </script>
+                        </h2>
+                      </div>
+                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                          <h6>Как активировать?</h6>
+                          <form  class="payment-form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                            <input type="hidden" name="receiver" value="41001247309837">
+                            <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO">
+                            <input type="hidden" name="short-dest" value="После оплаты не закрывайте страницу Яндекса! Нажмите [вернуться на сайт], чтобы получить свой ключ активации">
+                            <input type="hidden" name="targets" value="Активировать VK FLAC PRO">
+                            <input type="hidden" name="quickpay-form" value="shop">    
+                            <input type="hidden" name="sum" value="169" data-type="number">    
+                            <input type="hidden" name="paymentType" value="AC">
+                            <input class="s-url" type="hidden" name="successURL" value="">
+                          <div class="btn-group btn-group-sm" role="group">
+                            <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;" href="https://addons.opera.com/ru/extensions/details/vk-flac-pro/" class="btn btn-warning"  target="_blank">Установить</a>
+                            <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return true;" type="submit" class="btn btn-danger btn-pay">Оплатить</button>
+                            <a href="https://addons.opera.com/ru/extensions/details/proigryvatel-flac-dlia-vk/" class="btn btn-light">Старая версия</a>
+                          </div>
+                        </form>
+                        <hr class="my-4">
+                        <h6 style="color: brown;">После успешной оплаты на Yandex<br>обязательно нажмите &laquo;Вернуться на сайт&raquo;</h6>
+                        <img style="width: 275px; height: auto;" src="yandex-howto.png?">
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="card">
-                  <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                      <button class="btn btn-link btn-info" style="width: 100%;" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <img class="img-fluid float-left" style="height: 40px;" src="firefox.png">
-                      </button>
-                    </h2>
-                  </div>
-                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                    <div class="card-body">
-                      <h6>Как активировать?</h6>
-                      <form class="payment-form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
-                        <input type="hidden" name="receiver" value="41001247309837">
-                        <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="short-dest" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="targets" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="quickpay-form" value="shop">    
-                        <input type="hidden" name="sum" value="169" data-type="number">    
-                        <input type="hidden" name="paymentType" value="AC">
-                        <input class="s-url" type="hidden" name="successURL" value="">
-                      <div class="btn-group btn-group-sm" role="group">
-                        <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;" href="https://addons.mozilla.org/ru/firefox/addon/vk-flac-pro/" class="btn btn-warning"  target="_blank">Установить</a>
-                        <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return true;" type="submit" class="btn btn-danger btn-pay">Оплатить</button>
-                        <a href="https://addons.mozilla.org/ru/firefox/addon/%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-flac-%D0%B4%D0%BB%D1%8F-vk/" class="btn btn-light">Старая версия</a>
-                      </div>
-                    </form>
-                    <hr class="my-4">
-                    <h6 style="color: brown;">После успешной оплаты на Yandex<br>обязательно нажмите &laquo;Вернуться на сайт&raquo;</h6>
-                    <img style="width: 275px; height: auto;" src="yandex-howto.png?">
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingTwo">
-                    <h2 class="mb-0">
-                      <button class="btn btn-warning collapsed" style="width: 100%; display: flex; align-items: center; font-size: 18px" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <img class="img-fluid float-left" style="height: 40px;" src="opera.png">&nbsp;&nbsp;/&nbsp;&nbsp;<img class="img-fluid float-left" style="height: 40px;" src="yandex-browser.png">&nbsp;&nbsp;Яндекс
-                      </button>
-                    </h2>
-                  </div>
-                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                    <div class="card-body">
-                      <h6>Как активировать?</h6>
-                      <form  class="payment-form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
-                        <input type="hidden" name="receiver" value="41001247309837">
-                        <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="short-dest" value="После оплаты не закрывайте страницу Яндекса! Нажмите [вернуться на сайт], чтобы получить свой ключ активации">
-                        <input type="hidden" name="targets" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="quickpay-form" value="shop">    
-                        <input type="hidden" name="sum" value="169" data-type="number">    
-                        <input type="hidden" name="paymentType" value="AC">
-                        <input class="s-url" type="hidden" name="successURL" value="">
-                      <div class="btn-group btn-group-sm" role="group">
-                        <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;" href="https://addons.opera.com/ru/extensions/details/vk-flac-pro/" class="btn btn-warning"  target="_blank">Установить</a>
-                        <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return true;" type="submit" class="btn btn-danger btn-pay">Оплатить</button>
-                        <a href="https://addons.opera.com/ru/extensions/details/proigryvatel-flac-dlia-vk/" class="btn btn-light">Старая версия</a>
-                      </div>
-                    </form>
-                    <hr class="my-4">
-                    <h6 style="color: brown;">После успешной оплаты на Yandex<br>обязательно нажмите &laquo;Вернуться на сайт&raquo;</h6>
-                    <img style="width: 275px; height: auto;" src="yandex-howto.png?">
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <script>
+                  if (!isFirefox && !isOpera){
+                    document.getElementById('ff-opera-support').style.opacity = '0.3';
+                  }
+                </script>
               <hr class="my-4">
               <p><div class="alert alert-success" style="display: flex; align-items: center;" role="alert">
                 <img class="float-left" src="favicon-32x32.png"><span style="padding-left: 20px;">Перед использованием, старое расширение необходимо отключить!</span>
