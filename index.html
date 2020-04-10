@@ -171,7 +171,14 @@
                 </div>
                 <script>
                   if (!isFirefox && !isOpera){
-                    document.getElementById('ff-opera-support').style.opacity = '0.3';
+                    let ffOpera = document.getElementById('ff-opera-support');
+                    ffOpera.style.opacity = '0.3';
+                    ffOpera.addEventListener('mouseenter', ()=>{
+                      ffOpera.style.opacity = '1.0';
+                    });
+                    ffOpera.addEventListener('mouseleave', ()=>{
+                      ffOpera.style.opacity = '0.3';
+                    });
                   }
                 </script>
               <hr class="my-4">
