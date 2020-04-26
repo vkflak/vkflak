@@ -17,6 +17,7 @@ body {
     margin-top: -50px;
     filter: grayscale(100%);
     opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 .mainpage {
     position: absolute;
@@ -129,16 +130,19 @@ body {
 
 @media screen and (max-width: 1590px) {
     .mainpage .topframe, .mainpage .bottomframe {
-        width: 35vw;
+        width: 30vw;
     } 
     .fullvideo {
-        width: 55vw;
-        left: 22.5vw;
+        width: 75vw;
+        left: 12.5vw;
     }
 }
 @media screen and (max-width: 1150px) {
     body {
         overflow: hidden;
+    }
+    #backvideo{
+        margin-top: -10px;
     }
     .mainpage {
         background-color: slateblue;

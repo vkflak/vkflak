@@ -62,7 +62,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Проигрыватель VK Flac Pro β / Воспроизведение FLAC в социальной сети vk.com / Официальная страница">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css?79" >
+    <link rel="stylesheet" href="index.css?80" >
     <title>VK Flac Pro - Проигрыватель FLAC для VK</title>
     <script>
       var isOpera = !!(navigator.userAgent.match(/Chrome\/[0-9]+/g) && navigator.userAgent.match(/OPR\/[0-9]+/g));
@@ -186,9 +186,17 @@
                     let ffOpera = document.getElementById('ff-opera-support');
                     ffOpera.style.opacity = '0.3';
                     ffOpera.addEventListener('mouseenter', ()=>{
+                      if (!isOpera && !isFirefox){
+                        document.getElementById('opera-support').style.opacity = '1.0';
+                        document.getElementById('firefox-support').style.opacity = '1.0';
+                      }
                       ffOpera.style.opacity = '1.0';
                     });
                     ffOpera.addEventListener('mouseleave', ()=>{
+                      if (!isOpera && !isFirefox){
+                        document.getElementById('opera-support').style.opacity = '0.3';
+                        document.getElementById('firefox-support').style.opacity = '0.3';
+                      }
                       ffOpera.style.opacity = '0.3';
                     });
                   }
@@ -207,20 +215,20 @@
           <div class="row">
             <div class="col">
               <div class="jumbotron">
-                <h2 class="display-8">Что умеет. Перемотать видео к...</h2>
+                <h3 class="display-8">Что умеет. Перемотать к...</h3>
                 <div id="bseek" class="list-group">
                   <button data-seek="354" type="button" class="list-group-item list-group-item-action list-group-item-dark">
                     * Воспроизведение Flac, Wav, Opus
                   </button>
-                  <button data-seek="264" type="button" class="list-group-item list-group-item-action list-group-item-success">Создание альбома из поста</button>
-                  <button data-seek="250" type="button" class="list-group-item list-group-item-action list-group-item-warning">Скачивание в 1 клик всех треков поста</button>
-                  <button data-seek="20" type="button" class="list-group-item list-group-item-action list-group-item-info">Бесконечное число плейлистов</button>
+                  <button data-seek="264" type="button" class="list-group-item list-group-item-action list-group-item-light">Создание альбома из поста</button>
+                  <button data-seek="250" type="button" class="list-group-item list-group-item-action list-group-item-light">Скачивание в 1 клик всех треков поста</button>
+                  <button data-seek="20" type="button" class="list-group-item list-group-item-action list-group-item-light">Бесконечное число плейлистов</button>
                   <button data-seek="295" type="button" class="list-group-item list-group-item-action list-group-item-light">Плеер в топе, как и vk mp3 плеер</button>
-                  <button data-seek="530" type="button" class="list-group-item list-group-item-action list-group-item-info">Сохранять и загружать списки</button>
-                  <button data-seek="300" type="button" class="list-group-item list-group-item-action list-group-item-primary">Непрерывное воспроизведение</button>
-                  <button data-seek="470" type="button" class="list-group-item list-group-item-action list-group-item-danger">Поддержка MediaSession навигации</button>
-                  <button data-seek="390" type="button" class="list-group-item list-group-item-action list-group-item-dark">* Управление из любой вкладки</button>
-                  <button data-seek="43" type="button" class="list-group-item list-group-item-action list-group-item-danger">Вся коллекция всегда под рукой</button>
+                  <button data-seek="530" type="button" class="list-group-item list-group-item-action list-group-item-light">Сохранять и загружать списки</button>
+                  <button data-seek="300" type="button" class="list-group-item list-group-item-action list-group-item-light">Непрерывное воспроизведение</button>
+                  <button data-seek="470" type="button" class="list-group-item list-group-item-action list-group-item-light">Поддержка MediaSession навигации</button>
+                  <button data-seek="390" type="button" class="list-group-item list-group-item-action list-group-item-light">* Управление из любой вкладки</button>
+                  <button data-seek="43" type="button" class="list-group-item list-group-item-action list-group-item-light">Вся коллекция всегда под рукой</button>
                 </div>
                 <hr class="my-4">
                 <p class="lead">* &mdash; возможности <a class="btn btn-light" href="https://chrome.google.com/webstore/detail/%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-flac-%D0%B4%D0%BB%D1%8F-vk/hgoefiiboehgnhnhdhlfckklmamnlfkc">старой версии</a></p>
