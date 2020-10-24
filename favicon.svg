@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866666"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="icon.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     units="px"
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="235.303"
+     inkscape:cy="137.85553"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="89.013391,147.81753"
+       orientation="1,0"
+       id="guide922" />
+    <sodipodi:guide
+       position="98.415549,147.25056"
+       orientation="1,0"
+       id="guide924" />
+    <sodipodi:guide
+       position="94.352305,152.35324"
+       orientation="0,-1"
+       id="guide926" />
+    <sodipodi:guide
+       position="94.210564,142.45499"
+       orientation="0,-1"
+       id="guide928" />
+    <sodipodi:guide
+       id="guide862"
+       orientation="0,128"
+       position="0,33.866666" />
+    <sodipodi:guide
+       id="guide864"
+       orientation="128,0"
+       position="33.866666,33.866666" />
+    <sodipodi:guide
+       id="guide866"
+       orientation="0,-128"
+       position="33.866666,0" />
+    <sodipodi:guide
+       id="guide868"
+       orientation="-128,0"
+       position="0,0" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       transform="matrix(2.6666667,0,0,2.6666667,-233.03492,-382.17819)"
+       id="g949">
+      <path
+         style="stroke-width:0.264583"
+         id="path833"
+         fill="#2787f5"
+         d="m 87.388095,149.41399 c 0,-2.8687 0,-4.30304 0.891188,-5.19423 0.891188,-0.89119 2.325537,-0.89119 5.194229,-0.89119 h 0.529166 c 2.868692,0 4.303051,0 5.194221,0.89119 0.891191,0.89119 0.891191,2.32553 0.891191,5.19423 v 0.52916 c 0,2.8687 0,4.30305 -0.891191,5.19422 -0.89117,0.8912 -2.325529,0.8912 -5.194221,0.8912 h -0.529166 c -2.868692,0 -4.303041,0 -5.194229,-0.8912 -0.891188,-0.89117 -0.891188,-2.32552 -0.891188,-5.19422 z" />
+      <g
+         style="fill:#ffffff"
+         transform="matrix(0.02820292,-0.00188181,0.00188181,0.02820292,89.103333,146.14178)"
+         id="g920">
+        <g
+           style="fill:#ffffff"
+           id="Track__x2F__Note">
+          <path
+             style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd"
+             d="M 93.373,23.911 C 75.421,26.865 71.595,38.471 71.595,51.178 v 157.276 c -5.484,-1.678 -11.531,-2.623 -17.899,-2.623 -24.711,0 -44.746,14.018 -44.746,31.322 0,17.304 20.035,31.322 44.746,31.322 24.711,0 44.746,-14.018 44.746,-31.322 0,-1.587 -0.223,-3.134 -0.548,-4.657 l 0.548,0.183 V 103.555 L 232.68,84.378 v 106.179 c -5.484,-1.678 -11.531,-2.623 -17.899,-2.623 -24.71,0 -44.746,14.018 -44.746,31.322 0,17.304 20.036,31.322 44.746,31.322 23.836,0 43.266,-13.054 44.615,-29.508 l 0.131,0.031 V 0 Z"
+             id="path863" />
+        </g>
+        <g
+           style="fill:#ffffff"
+           id="g866" />
+        <g
+           style="fill:#ffffff"
+           id="g868" />
+        <g
+           style="fill:#ffffff"
+           id="g870" />
+        <g
+           style="fill:#ffffff"
+           id="g872" />
+        <g
+           style="fill:#ffffff"
+           id="g874" />
+        <g
+           style="fill:#ffffff"
+           id="g876" />
+        <g
+           style="fill:#ffffff"
+           id="g878" />
+        <g
+           style="fill:#ffffff"
+           id="g880" />
+        <g
+           style="fill:#ffffff"
+           id="g882" />
+        <g
+           style="fill:#ffffff"
+           id="g884" />
+        <g
+           style="fill:#ffffff"
+           id="g886" />
+        <g
+           style="fill:#ffffff"
+           id="g888" />
+        <g
+           style="fill:#ffffff"
+           id="g890" />
+        <g
+           style="fill:#ffffff"
+           id="g892" />
+        <g
+           style="fill:#ffffff"
+           id="g894" />
+      </g>
+    </g>
+  </g>
+</svg>
