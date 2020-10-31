@@ -82,8 +82,8 @@
           <div class="row">
             <div class="col">
               <div class="jumbotron">
-                <h2 class="display-8"><img class="img-fluid" style="height: 64px;" src="favicon.svg"></img> VK Flac Pro / β</h2>
-                <p class="lead">Прослушивай и организуй коллекции своих FLAC прямо в VK</p>
+                <h3 class="display-8"><img class="img-fluid" style="height: 64px;" src="favicon.svg"></img> VK Flac Pro / β</h3>
+                <p class="lead">Слушай и создавай коллекцию своих FLAC в VK</p>
                 <p><div class="alert alert-success" role="alert">
                   Всего за <span style="text-decoration: line-through;opacity: 0.4;">299</span> <strong>169 &#8381;</strong>!
                   <br>
@@ -94,44 +94,31 @@
                     document.getElementById('chrome-support').style.opacity = '0.3';
                   }
                 </script>
+                <h6 class="text-center">Для вашего браузера:</h6>
                 <div id="ff-opera-support">
                   <div class="accordion" id="accordionExample">
                     <div id="chromium-support" class="card">
                       <div class="card-header" id="headingZero">
                         <h2 class="mb-0">
-                          <button class="btn btn-primary" style="width: 100%;" type="button" data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
-                            <img class="img-fluid float-left" style="height: 40px;" src="chrome.png"><img class="img-fluid float-left" style="height: 40px; margin-left: 12px;" src="yandex-browser.png">
-                            <div class="float-left" style="height: 40px;line-height: 40px;font-size: 20px;">&nbsp;&nbsp;Chrome / Yandex</div>
+                          <button class="btn btn-primary btn-lg align-items-center" style="width: 100%; display: flex;" type="button" data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                            <img class="img-fluid" style="height: 40px;" src="chrome.png">
+                            <!--img class="img-fluid float-left" style="height: 40px; margin-left: 12px;" src="yandex-browser.png"-->
+                            <span>&nbsp;&nbsp;Chrome Web Store</span>
                           </button>
                           <script>
                             if (!isChromeSupport){
-                              document.getElementById('chromium-support').style.opacity = '0.3';
+                              document.getElementById('chromium-support').style.display = 'none';
+                              document.getElementById('chromium-support').style.pointerEvents = 'none';
                             }
                           </script>
                         </h2>
                       </div>
                       <div id="collapseZero" class="collapse" aria-labelledby="headingZero" data-parent="#accordionExample">
                         <div class="card-body">
-                          <h6>Как активировать?</h6>
-                          <form class="payment-form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
-                            <input type="hidden" name="receiver" value="41001247309837">
-                            <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO">
-                            <input type="hidden" name="short-dest" value="Активировать VK FLAC PRO">
-                            <input type="hidden" name="targets" value="Активировать VK FLAC PRO">
-                            <input type="hidden" name="quickpay-form" value="shop">    
-                            <input type="hidden" name="sum" value="169" data-type="number">    
-                            <input type="hidden" name="paymentType" value="AC">
-                            <input class="s-url" type="hidden" name="successURL" value="">
-                          <div class="btn-group btn-group-sm" role="group">
-                            <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;" href="https://chrome.google.com/webstore/detail/vk-flac-pro-%CE%B2/jmomokkjcbchdibnbpchkoefnhhilfpa" class="btn btn-warning"  target="_blank">Установить</a>
-                            <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return true;" type="submit" class="btn btn-danger btn-pay">Активировать на Яндекс</button>
+                          <div class="btn-group" role="group">
+                            <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;" href="https://chrome.google.com/webstore/detail/vk-flac-pro-%CE%B2/jmomokkjcbchdibnbpchkoefnhhilfpa" class="btn btn-success"  target="_blank">1. Установить</a>
+                            <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return true;" type="submit" class="btn btn-info btn-pay">2. Купить ключ</button>
                           </div>
-                        </form>
-                        <hr class="my-4">
-                        <h6 style="color: brown;">После активации на Яндекс<br>получите ключ по кнопке &laquo;Вернуться на сайт&raquo;</h6>
-                        <img style="width: 303px; height: auto;" src="yandex-howto.jpg">
-                        <hr class="my-4">
-                        <a href="https://chrome.google.com/webstore/detail/%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-flac-%D0%B4%D0%BB%D1%8F-vk/hgoefiiboehgnhnhdhlfckklmamnlfkc" class="btn btn-light">бесплатная старая версия</a>
                         </div>
                       </div>
                     </div>
@@ -143,7 +130,8 @@
                           </button>
                           <script>
                             if (!isFirefox){
-                              document.getElementById('firefox-support').style.opacity = '0.3';
+                              // document.getElementById('firefox-support').style.opacity = '0.3';
+                              document.getElementById('firefox-support').style.display = 'none';
                               document.getElementById('firefox-support').style.pointerEvents = 'none';
                             }
                           </script>
@@ -182,7 +170,8 @@
                           </button>
                           <script>
                             if (!isOpera){
-                              document.getElementById('opera-support').style.opacity = '0.3';
+                              document.getElementById('opera-support').style.display = 'none';
+                              // document.getElementById('opera-support').style.opacity = '0.3';
                               document.getElementById('opera-support').style.pointerEvents = 'none';
                             }
                           </script>
@@ -216,7 +205,7 @@
                   </div>
                 </div>
               <p><div class="alert alert-success" style="display: flex; align-items: center;" role="alert">
-                <img class="float-left" src="favicon-32x32.png#new"><span style="padding-left: 20px;">Перед использованием, старое расширение необходимо отключить!</span>
+                <img class="float-left" src="favicon-32x32.png#new"><span style="padding-left: 20px;">Перед использованием, <a href="https://chrome.google.com/webstore/detail/%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-flac-%D0%B4%D0%BB%D1%8F-vk/hgoefiiboehgnhnhdhlfckklmamnlfkc">бесплатную версию</a> необходимо отключить!</span>
               </div></p>              
               </div>
             </div>

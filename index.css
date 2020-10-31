@@ -176,7 +176,7 @@ body {
         padding-bottom: 15px;
         box-shadow: none;
     }
-    
+   
     .mainpage .bottomframe {
         background-color: slateblue;
         display: contents;
@@ -185,4 +185,9 @@ body {
         padding-bottom: 15px;
         box-shadow: none;
     }
+}
+.mainpage .topframe h3 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
