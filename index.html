@@ -64,6 +64,26 @@
     <link rel="stylesheet" href="index.css?80" >
     <title>VK Flac Pro - Проигрыватель FLAC для VK</title>
     <script>
+      function goPay() {
+        const orderId = (new Date()).getTime().toString();
+        const form = document.createElement('form');
+        form.setAttribute('method','POST');
+        form.setAttribute('target', '_blank');
+        form.setAttribute('action', 'https://bl.vkflac.tk/');
+        const order = document.createElement('input');
+        order.setAttribute('type','hidden');
+        order.setAttribute('name','orderid');
+        const type = document.createElement('input');
+        type.setAttribute('name','agg');
+        type.setAttribute('type', 'hidden')
+        type.value = 'paytodo';
+        order.value = orderId;
+        form.appendChild(order);
+        form.appendChild(type);
+        document.body.appendChild(form);
+        form.submit();
+        form.remove();
+      }  
       var isOpera = !!(navigator.userAgent.match(/Chrome\/[0-9]+/g) && navigator.userAgent.match(/OPR\/[0-9]+/g));
       var isFirefox = !!(navigator.userAgent.match(/Gecko\/[0-9]+/g) && navigator.userAgent.match(/Firefox\/[0-9]+/g) && !isOpera);
       var isChromeSupport = !!(navigator.userAgent.match(/Chrome\/[0-9]+/g) && !isFirefox && !isOpera);
@@ -96,31 +116,21 @@
                 </script>
                 <h6 class="text-center">Для вашего браузера:</h6>
                 <div id="ff-opera-support">
-                  <div class="accordion" id="accordionExample">
-                    <div id="chromium-support" class="card">
-                      <div class="card-header" id="headingZero">
-                        <h2 class="mb-0">
-                          <button class="btn btn-primary btn-lg align-items-center" style="width: 100%; display: flex;" type="button" data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
-                            <img class="img-fluid" style="height: 40px;" src="chrome.png">
-                            <!--img class="img-fluid float-left" style="height: 40px; margin-left: 12px;" src="yandex-browser.png"-->
-                            <span>&nbsp;&nbsp;Chrome Web Store</span>
-                          </button>
-                          <script>
-                            if (!isChromeSupport){
-                              document.getElementById('chromium-support').style.display = 'none';
-                              document.getElementById('chromium-support').style.pointerEvents = 'none';
-                            }
-                          </script>
-                        </h2>
+                    <div id="chromium-support">
+                      <div class="btn-group">
+                        <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;" href="https://chrome.google.com/webstore/detail/vk-flac-pro-%CE%B2/jmomokkjcbchdibnbpchkoefnhhilfpa" class="btn btn-primary btn-lg btn-flex">
+                          <img class="img-fluid" src="chrome.png">
+                          <!--img class="img-fluid float-left" style="height: 40px; margin-left: 12px;" src="yandex-browser.png"-->
+                          <span>Установить,</span>
+                        </a>
+                        <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return goPay();" class="btn btn-success btn-lg btn-flex">активировать</button>
                       </div>
-                      <div id="collapseZero" class="collapse" aria-labelledby="headingZero" data-parent="#accordionExample">
-                        <div class="card-body">
-                          <div class="btn-group" role="group">
-                            <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;" href="https://chrome.google.com/webstore/detail/vk-flac-pro-%CE%B2/jmomokkjcbchdibnbpchkoefnhhilfpa" class="btn btn-success"  target="_blank">1. Установить</a>
-                            <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return true;" type="submit" class="btn btn-info btn-pay">2. Купить ключ</button>
-                          </div>
-                        </div>
-                      </div>
+                      <script>
+                        if (!isChromeSupport){
+                          document.getElementById('chromium-support').style.display = 'none';
+                          document.getElementById('chromium-support').style.pointerEvents = 'none';
+                        }
+                      </script>
                     </div>
                     <div id="firefox-support" class="card">
                       <div class="card-header" id="headingOne">
@@ -202,7 +212,6 @@
                         </div>
                       </div>
                     </div>
-                  </div>
                 </div>
               <p><div class="alert alert-success" style="display: flex; align-items: center;" role="alert">
                 <img class="float-left" src="favicon-32x32.png#new"><span style="padding-left: 20px;">Перед использованием, <a href="https://chrome.google.com/webstore/detail/%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-flac-%D0%B4%D0%BB%D1%8F-vk/hgoefiiboehgnhnhdhlfckklmamnlfkc">бесплатную версию</a> необходимо отключить!</span>
@@ -268,27 +277,7 @@
           video.currentTime = parseInt(cbt.target.dataset.seek,10);
         });
       });
-
-      let xx1 = 'P2FjdGl2ZSNnZGZzbGpzZ2xrZmRnamFxZ3Fxd2RzYm52YmNubXhidm1zZGZkc2Zkc2pma2xkc2pmanNka2xmc2Roc2dmZ3NnZm';
-      let xx2 = 'FoZGZnZmhnYWZraGRnZmhhZ2RqaGZnYXNoZGZqc2dkZmpzaGRqZnNqaGFmc2Rqa2hkamZnamFzZnNkYWpnaGRmYWpmZHNqaGRq';
-      
-      let surl = 'https://vkflac.tk' + atob((xx1 + xx2));
-      
-      document.querySelectorAll('.btn-pay').forEach((btn)=>{
-        
-        btn.addEventListener('mousedown', ()=>{
-          document.querySelectorAll('.s-url').forEach((esurl)=>{
-            esurl.value = surl;
-          });
-        });
-        
-        btn.addEventListener('mouseleave', ()=>{
-          document.querySelectorAll('.s-url').forEach((esurl)=>{
-            esurl.value = '';
-          });
-        });
-
-      });
+ 
     </script>
     <div class="modal fade" data-backdrop="static" id="keyblock" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">

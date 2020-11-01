@@ -191,3 +191,13 @@ body {
     align-items: center;
     gap: 20px;
 }
+
+#ff-opera-support .btn-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#ff-opera-support .btn-flex>* {
+    height: 40px;
+    line-height: 40px;
+}
