@@ -195,9 +195,15 @@ body {
 #ff-opera-support .btn-flex {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
+    justify-content: center;
 }
 #ff-opera-support .btn-flex>* {
     height: 40px;
     line-height: 40px;
+}
+#chromium-support {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

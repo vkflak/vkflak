@@ -72,28 +72,27 @@
     content="Проигрыватель VK Flac Pro β / Воспроизведение FLAC в социальной сети vk.com / Официальная страница">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="index.css?80">
+  <link rel="stylesheet" href="index.css?89">
   <title>VK Flac Pro - Проигрыватель FLAC для VK</title>
   <script>
-    function goPay() {
-      const orderId = (new Date()).getTime().toString();
-      const form = document.createElement('form');
-      form.setAttribute('method', 'POST');
-      form.setAttribute('target', '_blank');
-      form.setAttribute('action', 'https://bl.vkflac.tk/?payment=getstatus');
-      const order = document.createElement('input');
-      order.setAttribute('type', 'hidden');
-      order.setAttribute('name', 'orderid');
-      const type = document.createElement('input');
-      type.setAttribute('name', 'agg');
-      type.setAttribute('type', 'hidden')
-      type.value = 'paytodo';
-      order.value = orderId;
-      form.appendChild(order);
-      form.appendChild(type);
-      document.body.appendChild(form);
-      form.submit();
-      form.remove();
+    function goActivate() {
+      if (event.target.id === 'iemail') { return; }
+      let regexp = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/ig;
+      let email = document.getElementById('iemail');
+      let button = document.getElementById('btntxt');
+      if (regexp.test(email.value)) {
+        if (confirm("Я ввел email-адрес правильно.\nВыслать ключ активации на: " + email.value + "\nПерейти к оплате!")) {
+          ym(61636378,'reachGoal','PAY_OTHER');
+          document.location = atob('aHR0cHM6Ly9ibC52a2ZsYWMudGsvaW5pdHBheS5waHA/cGF5bWVudD1nZXRzdGF0dXMmZW1haWw9')+email.value;
+        }
+      } else {
+        if (email.style.display !== 'none') { 
+          email.setAttribute('placeholder', 'введите корректный e-mail');
+        } else {
+          email.style.display = 'flex';
+          button.textContent = 'Ok';
+        }
+      } 
     }
     var isOpera = !!(navigator.userAgent.match(/Chrome\/[0-9]+/g) && navigator.userAgent.match(/OPR\/[0-9]+/g));
     var isFirefox = !!(navigator.userAgent.match(/Gecko\/[0-9]+/g) && navigator.userAgent.match(/Firefox\/[0-9]+/g) && !isOpera);
@@ -125,157 +124,28 @@
                 Навсегда! Все обновления бесплатно!
               </div>
               </p>
-              <script>
-                if (!isChromeSupport) {
-                  document.getElementById('chrome-support').style.opacity = '0.3';
-                }
-              </script>
-              <br>
-              <br>
-              <link rel="stylesheet" href="https://kassa.yandex.ru/integration/simplepay/css/kassa_construct_form.css">
-              <form class="yandex-money-payment-form" action="https://kassa.yandex.ru/integration/simplepay/payment"
-                method="post">
-                <input name="customerNumber" type="hidden" value="Получить ключ активации VK Flac Pro / β">
-                <div class="ym-payment-btn-block">
-                  <div class="ym-input-icon-rub ym-display-none">
-                    <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number"
-                      step="any" value="1">
-                  </div>
-                  <button data-text="Активировать" class="ym-btn-pay ym-result-price"><span
-                      class="ym-text-crop">Активировать</span> <span class="ym-price-output">
-                      1,00&nbsp;₽</span></button>
-                  <svg class="yamoney-logo" width="114" height="24" viewBox="0 0 114 24"
-                    xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitle" role="img">
-                    <title>Логотип Яндекс Кассы</title>
-                    <path
-                      d="M6.47 13.33L3.05 21H.56l3.75-8.2a5.34 5.34 0 0 1-2.13-1.98 6.66 6.66 0 0 1-.8-3.54c0-1.05.15-1.96.45-2.76a5.18 5.18 0 0 1 3.12-3.15C5.68 1.11 6.42.98 7.2.98h3.22V21H8.26v-7.67h-1.8zM8.26 2.8H7.11c-.43 0-.85.08-1.26.24-.4.16-.77.4-1.09.75-.32.35-.57.8-.77 1.38-.2.57-.3 1.27-.3 2.11 0 .8.1 1.47.27 2.02.18.54.42.98.73 1.31.3.34.67.58 1.1.72.41.14.86.2 1.32.2h1.15V2.8zm23.77 20.97h-1.96V21h-6.05v2.77h-1.96v-4.56h.87c.32-.75.57-1.57.76-2.48.18-.9.33-1.84.43-2.8.1-.96.17-1.94.2-2.94s.04-1.96.04-2.9V6.9h6.55V19.2h1.12v4.56zm9.5-3.72a5.33 5.33 0 0 1-3.48 1.15c-1.45 0-2.6-.57-3.44-1.7-.84-1.13-1.26-2.78-1.26-4.97 0-1.14.08-2.18.24-3.13a8.9 8.9 0 0 1 .75-2.48c.35-.7.8-1.25 1.33-1.64a3.63 3.63 0 0 1 3.53-.24c.49.24.9.61 1.23 1.14.34.52.6 1.2.79 2.03.18.83.28 1.84.28 3.03v1.2h-5.88c0 1.61.22 2.83.65 3.65.44.82 1.1 1.23 1.98 1.23.61 0 1.16-.1 1.64-.32a6.4 6.4 0 0 0 1.13-.63l.5 1.68zM20.8 6.89V21h-2.15v-6.33H15.4V21h-2.18V6.89h2.18v5.99h3.25v-6h2.15zm25.12 7.08V21h-2.18V6.89h2.18v6.52l3.39-6.52h2.21l-3.5 6.63 4 7.48h-2.38l-3.72-7.03zm11.23 7.23c-1.51 0-2.7-.6-3.56-1.81-.86-1.2-1.29-3.02-1.29-5.45 0-1.1.11-2.1.33-3 .21-.89.53-1.65.95-2.27.42-.63.94-1.11 1.57-1.46a4.42 4.42 0 0 1 2.17-.52c.63 0 1.14.07 1.54.21.39.14.74.31 1.06.52l-.3 2.07c-.3-.26-.66-.49-1.06-.68-.4-.2-.82-.3-1.27-.3-.79 0-1.43.44-1.93 1.32-.5.88-.76 2.21-.76 4 0 1.78.21 3.14.63 4.1.42.97 1.08 1.45 1.97 1.45.55 0 1.01-.1 1.4-.27.4-.18.72-.38.98-.6l.5 1.62a4.33 4.33 0 0 1-2.94 1.06zM28.75 8.65h-2.43v.25c0 .75-.01 1.57-.04 2.45a38.63 38.63 0 0 1-.58 5.4c-.16.9-.4 1.71-.7 2.46h3.76V8.65zm8.85-.17c-.67 0-1.14.38-1.42 1.14-.28.75-.46 1.77-.54 3.04h3.62c0-.6-.03-1.16-.09-1.67a6.69 6.69 0 0 0-.26-1.33 2.05 2.05 0 0 0-.5-.87c-.22-.2-.49-.3-.8-.3zm30.6 1.96V21h-1.4V.98h1.4v9.35L74.07.98h1.34l-5.76 9.24L75.9 21h-1.57l-6.13-10.56zm12.33 9.78c.65 0 1.2-.27 1.66-.82a6 6 0 0 0 1.08-1.96v-3.89h-1.51c-1.18 0-2.04.28-2.6.84-.56.56-.84 1.46-.84 2.69 0 1 .2 1.78.6 2.32.4.55.94.82 1.6.82zm3.13.78l-.18-.71a8.54 8.54 0 0 1-.15-1.2c-.34.68-.76 1.21-1.26 1.6-.5.4-1.11.59-1.82.59-.95 0-1.73-.36-2.33-1.08-.6-.72-.9-1.72-.9-3 0-1.52.4-2.66 1.21-3.44.8-.77 1.97-1.16 3.5-1.16h1.54v-1.76c0-1.09-.2-1.87-.59-2.36-.39-.48-.98-.72-1.76-.72a3.6 3.6 0 0 0-2.97 1.54l-.36-1.26c.28-.38.7-.7 1.27-1a4.5 4.5 0 0 1 2.06-.43c1.18 0 2.08.33 2.7 1 .63.65.94 1.69.94 3.09v7.7c0 .48.03.97.08 1.47.06.5.13.87.23 1.13h-1.2zm7.87-.87c.45 0 .85-.07 1.2-.22.34-.15.63-.33.87-.53.28-.2.53-.46.73-.76l.42 1.1a3.86 3.86 0 0 1-1.8 1.33c-.42.15-.9.23-1.45.23a3.65 3.65 0 0 1-3.29-1.92c-.77-1.28-1.16-3.07-1.16-5.39 0-2.33.38-4.14 1.15-5.43a3.66 3.66 0 0 1 3.33-1.93 3.85 3.85 0 0 1 3.08 1.32l-.36 1.4c-.32-.44-.7-.8-1.15-1.13a2.64 2.64 0 0 0-1.57-.47c-1.08 0-1.88.54-2.4 1.62-.5 1.08-.76 2.62-.76 4.62a11 11 0 0 0 .75 4.54c.5 1.08 1.31 1.62 2.41 1.62zm9.3 0c.45 0 .84-.07 1.19-.22.34-.15.64-.33.88-.53.28-.2.52-.46.73-.76l.42 1.1a3.86 3.86 0 0 1-1.8 1.33c-.43.15-.9.23-1.45.23a3.65 3.65 0 0 1-3.29-1.92c-.77-1.28-1.16-3.07-1.16-5.39 0-2.33.38-4.14 1.15-5.43a3.66 3.66 0 0 1 3.33-1.93 3.85 3.85 0 0 1 3.08 1.32l-.37 1.4c-.31-.44-.7-.8-1.14-1.13a2.64 2.64 0 0 0-1.57-.47c-1.08 0-1.88.54-2.4 1.62-.5 1.08-.77 2.62-.77 4.62a11 11 0 0 0 .76 4.54c.5 1.08 1.3 1.62 2.4 1.62zm8.12.09c.65 0 1.2-.27 1.66-.82a6 6 0 0 0 1.08-1.96v-3.89h-1.51c-1.18 0-2.04.28-2.6.84-.56.56-.84 1.46-.84 2.69 0 1 .2 1.78.6 2.32.4.55.94.82 1.6.82zm3.13.78l-.18-.71a8.54 8.54 0 0 1-.15-1.2c-.34.68-.76 1.21-1.26 1.6-.5.4-1.11.59-1.82.59-.95 0-1.73-.36-2.33-1.08-.6-.72-.9-1.72-.9-3 0-1.52.4-2.66 1.21-3.44.8-.77 1.97-1.16 3.5-1.16h1.54v-1.76c0-1.09-.2-1.87-.59-2.36-.39-.48-.98-.72-1.76-.72a3.6 3.6 0 0 0-2.97 1.54l-.36-1.26c.28-.38.7-.7 1.27-1a4.5 4.5 0 0 1 2.06-.43c1.18 0 2.08.33 2.7 1 .63.65.94 1.69.94 3.09v7.7c0 .48.03.97.08 1.47.06.5.13.87.23 1.13h-1.2z"
-                      fill="var(--color-typo-primary)" fill-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <input name="shopId" type="hidden" value="755750">
-              </form>
-              <script src="https://kassa.yandex.ru/integration/simplepay/js/kassa_construct_form.js"></script><br><br>
-              <h6 class="text-center">Для вашего браузера:</h6>
               <div id="ff-opera-support">
                 <div id="chromium-support">
-                  <div class="btn-group">
                     <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;"
+                      id="iihref"
+                      target="_blank"
                       href="https://chrome.google.com/webstore/detail/vk-flac-pro-%CE%B2/jmomokkjcbchdibnbpchkoefnhhilfpa"
                       class="btn btn-primary btn-lg btn-flex">
-                      <img class="img-fluid" src="chrome.png">
-                      <!--img class="img-fluid float-left" style="height: 40px; margin-left: 12px;" src="yandex-browser.png"-->
-                      <span>Установить,</span>
+                      <img class="img-fluid" id='iicon' src="chrome.png">
+                      <span id="istore">Установить</span>
                     </a>
-                    <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return goPay();"
-                      class="btn btn-success btn-lg btn-flex">активировать</button>
-                  </div>
-                  <script>
-                    if (!isChromeSupport) {
-                      document.getElementById('chromium-support').style.display = 'none';
-                      document.getElementById('chromium-support').style.pointerEvents = 'none';
-                    }
-                  </script>
+                    <button onclick="return goActivate();"
+                      class="btn btn-success btn-lg btn-flex">
+                      <input id="iemail" name="email" type="email" style="display: none;" class="form-control" placeholder="ваш email для ключа" aria-label="Ваш email" required>
+                      <span id="btntxt">Активировать</span>
+                    </button>
                 </div>
-                <div id="firefox-support" class="card">
-                  <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                      <button class="btn btn-link btn-info" style="width: 100%;" type="button" data-toggle="collapse"
-                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <img class="img-fluid float-left" style="height: 40px;" src="firefox.png">
-                      </button>
-                      <script>
-                        if (!isFirefox) {
-                          // document.getElementById('firefox-support').style.opacity = '0.3';
-                          document.getElementById('firefox-support').style.display = 'none';
-                          document.getElementById('firefox-support').style.pointerEvents = 'none';
-                        }
-                      </script>
-                    </h2>
-                  </div>
-                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                    <div class="card-body">
-                      <h6>Как активировать?</h6>
-                      <form class="payment-form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
-                        <input type="hidden" name="receiver" value="41001247309837">
-                        <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="short-dest" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="targets" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="quickpay-form" value="shop">
-                        <input type="hidden" name="sum" value="169" data-type="number">
-                        <input type="hidden" name="paymentType" value="AC">
-                        <input class="s-url" type="hidden" name="successURL" value="">
-                        <div class="btn-group btn-group-sm" role="group">
-                          <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;"
-                            href="https://addons.mozilla.org/ru/firefox/addon/vk-flac-pro/" class="btn btn-warning"
-                            target="_blank">Установить</a>
-                          <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return true;" type="submit"
-                            class="btn btn-danger btn-pay">Активировать на Яндекс</button>
-                        </div>
-                      </form>
-                      <hr class="my-4">
-                      <h6 style="color: brown;">После активации на Яндекс<br>получите ключ по кнопке &laquo;Вернуться на
-                        сайт&raquo;</h6>
-                      <img style="width: 303px; height: auto;" src="yandex-howto.jpg">
-                      <hr class="my-4">
-                      <a href="https://addons.mozilla.org/ru/firefox/addon/%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-flac-%D0%B4%D0%BB%D1%8F-vk/"
-                        class="btn btn-light">бесплатная старая версия</a>
-                    </div>
-                  </div>
-                </div>
-                <div id="opera-support" class="card">
-                  <div class="card-header" id="headingTwo">
-                    <h2 class="mb-0">
-                      <button class="btn btn-warning collapsed"
-                        style="width: 100%; display: flex; align-items: center; font-size: 18px" type="button"
-                        data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                        aria-controls="collapseTwo">
-                        <img class="img-fluid float-left" style="height: 40px;" src="opera.png">
-                      </button>
-                      <script>
-                        if (!isOpera) {
-                          document.getElementById('opera-support').style.display = 'none';
-                          // document.getElementById('opera-support').style.opacity = '0.3';
-                          document.getElementById('opera-support').style.pointerEvents = 'none';
-                        }
-                      </script>
-                    </h2>
-                  </div>
-                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                    <div class="card-body">
-                      <h6>Как активировать?</h6>
-                      <form class="payment-form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
-                        <input type="hidden" name="receiver" value="41001247309837">
-                        <input type="hidden" name="formcomment" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="short-dest"
-                          value="После оплаты не закрывайте страницу Яндекса! Нажмите [вернуться на сайт], чтобы получить свой ключ активации">
-                        <input type="hidden" name="targets" value="Активировать VK FLAC PRO">
-                        <input type="hidden" name="quickpay-form" value="shop">
-                        <input type="hidden" name="sum" value="169" data-type="number">
-                        <input type="hidden" name="paymentType" value="AC">
-                        <input class="s-url" type="hidden" name="successURL" value="">
-                        <div class="btn-group btn-group-sm" role="group">
-                          <a onclick="ym(61636378,'reachGoal','INSTALL_EXT_OTHER'); return true;"
-                            href="https://addons.opera.com/ru/extensions/details/vk-flac-pro/" class="btn btn-warning"
-                            target="_blank">Установить</a>
-                          <button onclick="ym(61636378,'reachGoal','PAY_OTHER'); return true;" type="submit"
-                            class="btn btn-danger btn-pay">Активировать на Яндекс</button>
-                        </div>
-                      </form>
-                      <hr class="my-4">
-                      <h6 style="color: brown;">После активации на Яндекс<br>получите ключ по кнопке &laquo;Вернуться на
-                        сайт&raquo;</h6>
-                      <img style="width: 303px; height: auto;" src="yandex-howto.jpg">
-                      <hr class="my-4">
-                      <a href="https://addons.opera.com/ru/extensions/details/proigryvatel-flac-dlia-vk/"
-                        class="btn btn-light">бесплатная старая версия</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             </div>
               <p>
               <div class="alert alert-success" style="display: flex; align-items: center;" role="alert">
                 <img class="float-left" src="favicon-32x32.png#new"><span style="padding-left: 20px;">Перед
                   использованием, <a
+                    class="a-old-version" 
                     href="https://chrome.google.com/webstore/detail/%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-flac-%D0%B4%D0%BB%D1%8F-vk/hgoefiiboehgnhnhdhlfckklmamnlfkc">бесплатную
                     версию</a> необходимо отключить!</span>
               </div>
@@ -326,7 +196,7 @@
                   рукой</button>
               </div>
               <hr class="my-4">
-              <p class="lead">* &mdash; возможности <a class="btn btn-light"
+              <p class="lead">* &mdash; возможности <a class="a-old-version"
                   href="https://chrome.google.com/webstore/detail/%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-flac-%D0%B4%D0%BB%D1%8F-vk/hgoefiiboehgnhnhdhlfckklmamnlfkc">старой
                   версии</a></p>
               <hr class="my-4">
@@ -341,6 +211,29 @@
       </div>
     </div>
   </div>
+  <script>
+    if (!isChromeSupport) {
+      let elmh = document.getElementById('iihref');
+      let iicon = document.getElementById('iicon');
+      let istore = document.getElementById('istore');
+      let olds = document.querySelectorAll('.a-old-version'); 
+      if (isFirefox) {
+        elmh.setAttribute('href','https://addons.mozilla.org/ru/firefox/addon/vk-flac-pro/');
+        olds.forEach((old)=>{old.setAttribute('href','https://addons.mozilla.org/ru/firefox/addon/vk-flac-pro/');});
+        iicon.setAttribute('src', 'firefox.png');
+        istore.textContent = '';
+      } else if (isOpera) {
+        elmh.setAttribute('href','https://addons.opera.com/ru/extensions/details/vk-flac-pro/');
+        olds.forEach((old)=>{old.setAttribute('href','https://addons.opera.com/ru/extensions/details/proigryvatel-flac-dlia-vk/');});
+        elmh.classList.add('btn-warning');
+        iicon.setAttribute('src', 'opera.png');
+        istore.textContent = '';  
+      } else {
+        elmh.setAttribute('href','#');
+        istore.textContent = 'Ваш бразуер не поддерживается';
+      }
+    }
+  </script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
@@ -372,27 +265,27 @@
     });
 
   </script>
-  <div class="modal fade" data-backdrop="static" id="keyblock" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Спасибо за активацию! Ваш ключ ниже</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p class="keyinfo"></p>
-          <hr class="my-4">
-          <p>Не передавайте ключ третим лицам! Используйте только для своего аккаунта или членов своей семьи.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Я скопировал ключ, закрыть.</button>
+    <div class="modal fade" data-backdrop="static" id="keyblock" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title chowc">Спасибо за активацию! Ваш ключ ниже</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="keyinfo"></p>
+            <hr class="my-4">
+            <p class="showt">Не передавайте ключ третим лицам! Используйте только для своего аккаунта или членов своей семьи.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary showb" data-dismiss="modal">Я скопировал ключ, закрыть.</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="zxcvbnm.js?v12"></script>
+  <script src="zxcvbnm.js?v18"></script>
 </body>
 
 </html>
