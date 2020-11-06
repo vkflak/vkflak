@@ -176,7 +176,7 @@ body {
         padding-bottom: 15px;
         box-shadow: none;
     }
-    
+   
     .mainpage .bottomframe {
         background-color: slateblue;
         display: contents;
@@ -185,4 +185,25 @@ body {
         padding-bottom: 15px;
         box-shadow: none;
     }
+}
+.mainpage .topframe h3 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#ff-opera-support .btn-flex {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+#ff-opera-support .btn-flex>* {
+    height: 40px;
+    line-height: 40px;
+}
+#chromium-support {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
