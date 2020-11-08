@@ -199,11 +199,19 @@ body {
     justify-content: center;
 }
 #ff-opera-support .btn-flex>* {
-    height: 40px;
     line-height: 40px;
 }
 #chromium-support {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+#iihref {
+    position: relative;
+}
+#iicon {
+    position: absolute;
+    height: 20px;
+    left: 10px;
+    top: 10px;
 }

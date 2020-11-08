@@ -72,7 +72,7 @@
     content="Проигрыватель VK Flac Pro β / Воспроизведение FLAC в социальной сети vk.com / Официальная страница">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="index.css?89">
+  <link rel="stylesheet" href="index.css?91">
   <title>VK Flac Pro - Проигрыватель FLAC для VK</title>
   <script>
     function goActivate() {
@@ -221,14 +221,14 @@
       if (isFirefox) {
         elmh.setAttribute('href','https://addons.mozilla.org/ru/firefox/addon/vk-flac-pro/');
         olds.forEach((old)=>{old.setAttribute('href','https://addons.mozilla.org/ru/firefox/addon/vk-flac-pro/');});
-        iicon.setAttribute('src', 'firefox.png');
-        istore.textContent = '';
+        iicon.setAttribute('src', 'firefox.png#2');
+        //istore.textContent = '';
       } else if (isOpera) {
         elmh.setAttribute('href','https://addons.opera.com/ru/extensions/details/vk-flac-pro/');
         olds.forEach((old)=>{old.setAttribute('href','https://addons.opera.com/ru/extensions/details/proigryvatel-flac-dlia-vk/');});
         elmh.classList.add('btn-warning');
-        iicon.setAttribute('src', 'opera.png');
-        istore.textContent = '';  
+        iicon.setAttribute('src', 'opera.png#2');
+        //istore.textContent = '';  
       } else {
         elmh.setAttribute('href','#');
         istore.textContent = 'Ваш бразуер не поддерживается';
