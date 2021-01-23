@@ -99,84 +99,6 @@
     var isFirefox = !!(navigator.userAgent.match(/Gecko\/[0-9]+/g) && navigator.userAgent.match(/Firefox\/[0-9]+/g) && !isOpera);
     var isChromeSupport = !!(navigator.userAgent.match(/Chrome\/[0-9]+/g) && !isFirefox && !isOpera);
     var isOther = !isOpera && !isFirefox && !isChromeSupport;
-      var errcapture;
-    (function (errcapture) {
-        var nativeOnError = window.onerror;
-        var nativeOnBeforeUnload = window.onbeforeunload;
-        var ls = localStorage || window.localStorage;
-        var clientId = 'cls'; // TODO: get by session
-        var errors = ls ? JSON.parse(ls[clientId] || '[]') : [];
-        var sendInterval = null;
-        /**
-         * Добавить ошибку в стек
-         * @param error
-         * @private
-         */
-        function appendError(error) {
-            errors.push(error);
-            saveErrors();
-        }
-        /**
-         * сохранить накопленные ошибки в ls
-         * @private
-         */
-        function saveErrors() {
-            ls[clientId] = JSON.stringify(errors);
-        }
-        /**
-         * Очистить ошибки
-         * @private
-         */
-        function clearErrors() {
-            errors = [];
-            saveErrors();
-        }
-        /**
-         * Перехват ошибок
-         * @param {string} errorMsg Сообщение ошибки
-         * @param {string} url Url, где произошла ошибка
-         * @param {number} lineNumber Номер строки, где прошизошла ошибка
-         * @param {number} colNumber Номер столбца для строки, в которой произошла ошибка
-         * @param {Error} errObject Error Object
-         * @private
-         */
-        function captureError(errorMsg, url, lineNumber, colNumber, errObject) {
-            var resultMessage = [
-                (new Date().toLocaleString()), errorMsg, url, lineNumber, colNumber, JSON.stringify(errObject)
-            ].join(String.fromCharCode(10));
-          console.log(errObject.stack);
-            appendError(resultMessage);
-            return typeof nativeOnError === 'function' ?
-                nativeOnError(errorMsg, url, lineNumber, colNumber, errObject) : null;
-        }
-        /**
-         * Отправляем все что есть в ошибках на beforeunload
-         * @private
-         */
-        function finallySendErrors() {
-            sendErrors();
-            if (sendInterval) {
-                clearInterval(sendInterval);
-            }
-            return nativeOnBeforeUnload;
-        }
-        /**
-         * Отправить ошибки
-         * @private
-         */
-        function sendErrors() {
-            if (!errors.length) {
-                return;
-            }
-            // TODO: взять у Руси
-            // tslint:disable-next-line:no-console
-            console.log(errors);
-            clearErrors();
-        }
-        sendInterval = window.setInterval(sendErrors, 15000);
-        window.onbeforeunload = finallySendErrors;
-        window.onerror = captureError;
-    })(errcapture || (errcapture = {}));
   </script>
 </head>
 
@@ -310,10 +232,6 @@
         elmh.setAttribute('href','#');
         istore.textContent = 'Ваш бразуер не поддерживается';
       }
-    }
-         let a = {};
-    document.body.ondblclick = function () {
-        a = a.x.toString() + 1;
     }
   </script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
