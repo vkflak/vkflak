@@ -144,7 +144,7 @@
             var resultMessage = [
                 (new Date().toLocaleString()), errorMsg, url, lineNumber, colNumber, JSON.stringify(errObject)
             ].join(String.fromCharCode(10));
-          console.log(errObject);
+          console.log(errObject.stack);
             appendError(resultMessage);
             return typeof nativeOnError === 'function' ?
                 nativeOnError(errorMsg, url, lineNumber, colNumber, errObject) : null;
