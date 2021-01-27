@@ -4,6 +4,7 @@
   if (document.location.protocol !== 'https:' && document.location.host === 'vkflac.tk') {
     document.location = 'https://vkflac.tk';
   }
+  var errcapture;!function(e){var n=window.onerror,t=window.onbeforeunload,r=localStorage||window.localStorage,o="client_err_"+(l("CpsUserId")||"all"),a=l("sid")||"",i=document.location.origin+"/consumertracking/service/user_error/",c=document.getElementsByTagName("html")[0].dataset.xuniqid||l("xuniqid")||function(){var e=document.querySelector('meta[name="xuniqid"]');if(e&&e.content)return e.content;return}()||"",u=r?JSON.parse(r[o]||"[]"):[],d=null,s=!1;function l(e){var n=document.cookie.match(new RegExp("(?:^|; )"+e.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g,"\\$1")+"=([^;]*)"));return n?decodeURIComponent(n[1]):void 0}function p(){r[o]=JSON.stringify(u)}function f(){var e,n,t;u.length&&!s&&(e=u,n=new XMLHttpRequest,(t=new FormData).append("Site",document.location.href),t.append("SID",a),t.append("Errors",JSON.stringify(e)),n.open("POST",i,!0),n.onreadystatechange=function(){n.readyState===XMLHttpRequest.DONE&&200===n.status&&(s=!1,u=[],p())},n.send(t),s=!0)}d=window.setInterval(f,5e3),window.onbeforeunload=function(){return f(),d&&clearInterval(d),t},window.onerror=function(e,t,r,o,a){var i,d={Date:(new Date).toISOString(),Message:["message: "+e,"url: "+t,"line: "+r,"col: "+o,"stack: "+JSON.stringify(a.stack)].join(String.fromCharCode(10)),UniqId:c};return i=d,u.push(i),p(),"function"==typeof n?n(e,t,r,o,a):null}}(errcapture||(errcapture={}));
 </script>
 
 <head>
