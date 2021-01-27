@@ -4,7 +4,6 @@
   if (document.location.protocol !== 'https:' && document.location.host === 'vkflac.tk') {
     document.location = 'https://vkflac.tk';
   }
-  var errcapture;!function(e){var n=window.onerror,t=window.onbeforeunload,r=localStorage||window.localStorage,o="client_err_"+(f("CpsUserId")||"all"),a=f("sid")||"",i=document.location.origin+"/consumertracking/service/user_error/",u=5e3,c=document.getElementsByTagName("html")[0].dataset.xuniqid||f("xuniqid")||function(){var e=document.querySelector('meta[name="xuniqid"]');if(e&&e.content)return e.content;return}()||"",d=r?JSON.parse(r[o]||"[]"):[],s=null,l=!1;function f(e){var n=document.cookie.match(new RegExp("(?:^|; )"+e.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g,"\\$1")+"=([^;]*)"));return n?decodeURIComponent(n[1]):void 0}function p(){r[o]=JSON.stringify(d)}function g(){var e,n,t;d.length&&!l&&(e=d,n=new XMLHttpRequest,(t=new FormData).append("Site",document.location.href),t.append("SID",a),t.append("Errors",JSON.stringify(e)),n.open("POST",i,!0),n.onreadystatechange=function(){n.readyState===XMLHttpRequest.DONE&&200===n.status?(l=!1,d=[],p()):setTimeout(function(){l=!1},u)},n.send(t),l=!0)}s=window.setInterval(g,u),window.onbeforeunload=function(){return g(),s&&clearInterval(s),t},window.onerror=function(e,t,r,o,a){var i,u={Date:(new Date).toISOString(),Message:["message: "+e,"url: "+t,"line: "+r,"col: "+o,"stack: "+JSON.stringify(a.stack)].join(String.fromCharCode(10)),UniqId:c};return i=u,d.push(i),p(),"function"==typeof n?n(e,t,r,o,a):null}}(errcapture||(errcapture={}));
 </script>
 
 <head>
@@ -233,10 +232,6 @@
         elmh.setAttribute('href','#');
         istore.textContent = 'Ваш бразуер не поддерживается';
       }
-    }
-    document.body.ondblclick = function() {
-    let a = {};
-    a.x = 1+b;  
     }
   </script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
