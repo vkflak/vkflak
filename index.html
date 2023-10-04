@@ -32,7 +32,9 @@
       sws.src = url;
 
       var pfs = doc.getElementsByTagName('script')[0];
-      pfs.parentNode.insertBefore(sws, pfs);
+      if (document.location.hash === '#saby') {
+        pfs.parentNode.insertBefore(sws, pfs);
+      }
    }
 )(window, document, `https://test-site.sbis.ru/reviews/script/021d9e1a-e9db-4e93-a0aa-76e0188ff8bf`);
 </script>
